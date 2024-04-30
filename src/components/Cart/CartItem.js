@@ -11,7 +11,7 @@ const CartItem = ({ product }) => {
   const { id, name, imgUrl, category, price, quantity, productId } = product;
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const [disable,setDisable] = useState(false);
+  const [disable, setDisable] = useState(false);
 
   // find product id
   const findProduct = (products) => {
@@ -21,13 +21,18 @@ const CartItem = ({ product }) => {
   // stop increasing while reaches max Quantity
   const stopIncrease = () => {
     const foundProduct = findProduct(products);
-      foundProduct.quantity === 1 ? setDisable(true) : setDisable(false);
+    if (foundProduct.quantity <= 0) {
+      setDisable(true);
+    } else {
+      setDisable(false);
+      dispatch(increaseQuantity(productId));
+      dispatch(removeQuantity(id));
+    }
   };
-  
+
   // console.log(total);
   const handelIncreaseQuantity = () => {
-    dispatch(increaseQuantity(productId));
-    dispatch(removeQuantity(id));
+    // Checking Max quantity
     stopIncrease();
   };
 
@@ -44,7 +49,7 @@ const CartItem = ({ product }) => {
   if (quantity === 0) {
     handelRemoveFromCart();
   }
-  
+
   return (
     <div className="cartCard">
       <div className="flex items-center col-span-6 space-x-6">

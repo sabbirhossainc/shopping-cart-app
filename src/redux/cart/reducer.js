@@ -1,11 +1,11 @@
+import nextCartId from "../nextId";
+import initialState from "./initialState";
 import {
   ADD_TO_CART,
-  REMOVE_FROM_CART,
-  INCREASE_QUANTITY,
   DECREASE_QUANTITY,
+  INCREASE_QUANTITY,
+  REMOVE_FROM_CART,
 } from "./actionTypes";
-import initialState from "./initialState";
-import nextCartId from "../nextId";
 
 const findProductInCart = (state, action) => {
   return state.find((item) => item.id === action.payload.id);

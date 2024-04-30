@@ -1,10 +1,10 @@
+import nextProductId from "../nextId";
 import {
   ADD_PRODUCT,
-  REMOVE_QUANTITY,
-  ADD_QUANTITY
+  ADD_QUANTITY,
+  REMOVE_QUANTITY
 } from "./actionTypes";
 import initialState from "./initialState";
-import nextProductId from "../nextId";
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

@@ -1,3 +1,9 @@
+# Preview the site
+
+This site provides a minimal setup for cart of an ecommerce site and can be add product, cart product, add to cart, delete cart items afterwards.
+
+## Live at [Shopping Cart app](https://main--real-shopping-cart.netlify.app/) 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
